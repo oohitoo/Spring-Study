@@ -2,7 +2,7 @@
 스프링 공부중
 
 Spring Download Url : https://spring.io/tools3/sts/all
-===================
+------------
 개발 IDE : Eclipe EE
 
 다운받은 sts.exe 실행
