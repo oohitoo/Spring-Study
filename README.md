@@ -13,9 +13,9 @@ Spring Download Url : https://spring.io/tools3/sts/all
  + `servlet-context.xml` -> Controller -> @RequestMapping -> .jsp
 
 > Get, Post 한글깨짐
- + JSP 처럼 해도 해결 안됨
-  * ``` java <% request.setCharacterEncoding("UTF-8"); %> ``` 
- + `WEB-INF\web.xml` 파일 수정 필요 (추가함)
+ * JSP 처럼 해도 해결 안됨
+  * <% request.setCharacterEncoding("UTF-8"); %>
+ * `WEB-INF\web.xml` 파일 수정 필요 (추가함)
   * ``` java 
 	<filter>
 		<filter-name>encodingFilter</filter-name>
