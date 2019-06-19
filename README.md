@@ -27,21 +27,19 @@ Spring Download Url : https://spring.io/tools3/sts/all
 				<param-value>UTF-8</param-value>
 			</init-param>
 		</filter>
-
 		<filter-mapping>
 			<filter-name>encodingFilter</filter-name>
 			<url-pattern>/*</url-pattern>
-		</filter-mapping> ```
+		</filter-mapping> 
+	    ```
 
 > 다운받은 sts.exe 실행
  + 경로는 C:\Spring\sts-bundle\sts-3.9.8.RELEASE\sts.exe 과 같다.
  
-> Project 만들기 & setting
- 
+> Project 만들기 & setting 
    1. new -> Legacy Project -> mvcProject 선택 후 (프로젝트명) -> Plugin (com.spring.애플리케이션명)
 
-pom.xml 수정
-11 ~ 14, 139 라인
+      pom.xml 수정 11 ~ 14, 139 라인
 ```java
 <java-version>1.8</java-version>
 		<org.springframework-version>5.0.7.RELEASE</org.springframework-version>
