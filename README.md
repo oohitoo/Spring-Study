@@ -6,12 +6,14 @@ Spring Download Url : https://spring.io/tools3/sts/all
 
 ### 개발 IDE : Eclipe EE
 
+> 단축키
+ + `alt+ F5` updateProject
 > 다운받은 sts.exe 실행
  + 경로는 C:\Spring\sts-bundle\sts-3.9.8.RELEASE\sts.exe 과 같다.
  
 > Project 만들기 & setting
  
- 1. new -> Legacy Project -> mvcProject 선택 후 (프로젝트명) -> Plugin (com.spring.아무거나)
+ 1. new -> Legacy Project -> mvcProject 선택 후 (프로젝트명) -> Plugin (com.spring.애플리케이션명)
 
 pom.xml 수정
 11 ~ 14, 139 라인
