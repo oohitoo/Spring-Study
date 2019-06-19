@@ -42,12 +42,12 @@ Spring Download Url : https://spring.io/tools3/sts/all
       pom.xml 수정 11 ~ 14, 139 라인
 ```java
 <java-version>1.8</java-version>
-		<org.springframework-version>5.0.7.RELEASE</org.springframework-version>
-		<org.aspectj-version>1.6.10</org.aspectj-version>
-		<org.slf4j-version>1.6.6</org.slf4j-version>
+	<org.springframework-version>5.0.7.RELEASE</org.springframework-version>
+	<org.aspectj-version>1.6.10</org.aspectj-version>
+	<org.slf4j-version>1.6.6</org.slf4j-version>
 
 <version>3.5.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+	<configuration>
+	    <source>1.8</source>
+	    <target>1.8</target>
 ```
