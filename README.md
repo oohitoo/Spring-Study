@@ -14,9 +14,9 @@ Spring Download Url : https://spring.io/tools3/sts/all
 
 > Get, Post 한글깨짐
  + JSP 처럼 해도 해결 안됨
-  + ``` java <% request.setCharacterEncoding("UTF-8"); %> ``` 
- + `WEB-INF\web.xml` 파일 수정 필요 (
-  + ``` java 
+  * ``` java <% request.setCharacterEncoding("UTF-8"); %> ``` 
+ + `WEB-INF\web.xml` 파일 수정 필요 (추가함)
+  * ``` java 
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>
@@ -31,8 +31,7 @@ Spring Download Url : https://spring.io/tools3/sts/all
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-  ```
+	</filter-mapping> ```
 
 > 다운받은 sts.exe 실행
  + 경로는 C:\Spring\sts-bundle\sts-3.9.8.RELEASE\sts.exe 과 같다.
