@@ -39,7 +39,7 @@ Spring Download Url : https://spring.io/tools3/sts/all
  
 > Project 만들기 & setting
  
- 	1. new -> Legacy Project -> mvcProject 선택 후 (프로젝트명) -> Plugin (com.spring.애플리케이션명)
+   1. new -> Legacy Project -> mvcProject 선택 후 (프로젝트명) -> Plugin (com.spring.애플리케이션명)
 
 pom.xml 수정
 11 ~ 14, 139 라인
