@@ -31,8 +31,7 @@ Spring Download Url : https://spring.io/tools3/sts/all
 		<filter-mapping>
 			<filter-name>encodingFilter</filter-name>
 			<url-pattern>/*</url-pattern>
-		</filter-mapping> 
-	```
+		</filter-mapping> ```
 
 > 다운받은 sts.exe 실행
  + 경로는 C:\Spring\sts-bundle\sts-3.9.8.RELEASE\sts.exe 과 같다.
