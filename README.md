@@ -14,24 +14,24 @@ Spring Download Url : https://spring.io/tools3/sts/all
 
 > Get, Post 한글깨짐
  * JSP 처럼 해도 해결 안됨 1
-  * <% request.setCharacterEncoding("UTF-8"); %>
+ 	* <% request.setCharacterEncoding("UTF-8"); %>
  * `WEB-INF\web.xml` 파일 수정 필요 (추가함) 2
-  * ``` java 
-	<filter>
-		<filter-name>encodingFilter</filter-name>
-		<filter-class>
-			org.springframework.web.filter.CharacterEncodingFilter
-		</filter-class>
-		<init-param>
-			<param-name>encoding</param-name>
-			<param-value>UTF-8</param-value>
-		</init-param>
-	</filter>
-	
-	<filter-mapping>
-		<filter-name>encodingFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping> ```
+	  * ``` java 
+		<filter>
+			<filter-name>encodingFilter</filter-name>
+			<filter-class>
+				org.springframework.web.filter.CharacterEncodingFilter
+			</filter-class>
+			<init-param>
+				<param-name>encoding</param-name>
+				<param-value>UTF-8</param-value>
+			</init-param>
+		</filter>
+
+		<filter-mapping>
+			<filter-name>encodingFilter</filter-name>
+			<url-pattern>/*</url-pattern>
+		</filter-mapping> ```
 
 > 다운받은 sts.exe 실행
  + 경로는 C:\Spring\sts-bundle\sts-3.9.8.RELEASE\sts.exe 과 같다.
