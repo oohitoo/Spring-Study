@@ -1,7 +1,8 @@
 # SpringFrm
 스프링 공부중
 
-Spring Download Url : https://spring.io/tools3/sts/all
+Spring Download URl : https://spring.io/tools3/sts/all
+lombok Download URl : https://projectlombok.org/download
 ------------
 
 ### 개발 IDE : Eclipe EE
@@ -92,8 +93,39 @@ public class MemberController {
 	}
 	
   // 받을때
-  	id : ${member.id}<br>
+	id : ${member.id}<br>
 	pwd : ${member.pwd}<br>
 	name : ${member.name}<br>
 	email : ${member.email}<br>
+  ```
+ > lomBok 설치 및 setting
+   1. lombok.jar 파일 다운로드 (위에 주소 첨부)
+   2. cmd(명령프롬프트) -> 다운한 경로 잡기 -> `java -jar lombok.jar` 실행
+   3. sts.exe 경로 잡고 install
+   4. sts.exe Reboot 한다.
+   5. pom.xml에 아래와 같이 110번 라인 뒤에 추가한다.
+ ```java
+<!-- lombok -->
+<dependency>
+ <groupId>org.projectlombok</groupId>
+  <artifactId>lombok</artifactId>
+  <version>1.18.8</version>
+ <scope>provided</scope>
+</dependency>
+ ```
+  6. 아래와 같이 사용하면 된다.
+  ```java
+@Data
+public class MemberDto {	
+	private String id;
+	private String pwd;
+	private String name;
+	private String email;
+}
+  
+  @RequestMapping("member/join") //데이터 커맨드 객체
+	public String join(MemberDto member, Model model) {
+		model.addAttribute("member", member);
+		return "member/join";
+	}
   ```
