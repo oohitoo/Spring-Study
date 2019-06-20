@@ -114,9 +114,10 @@ public class MemberController {
 </dependency>
  ```
   6. 아래와 같이 사용하면 된다.
+    + 방법 1
   ```java
 @Data
-public class MemberDto {	
+public class MemberDto {
 	private String id;
 	private String pwd;
 	private String name;
@@ -124,8 +125,37 @@ public class MemberDto {
 }
   
   @RequestMapping("member/join") //데이터 커맨드 객체
-	public String join(MemberDto member, Model model) {
-		model.addAttribute("member", member);
+	// 1. JSP에서 memberDto로 가져온다. (model.addAttribute("member",member))
+	// 2. @ModelAttribute("member") 변수를 사용함
+	public String join(@ModelAttribute("member") MemberDto member) {
 		return "member/join";
 	}
+	// 아래와 같이 받으면 된다
+	id : ${member.id}<br>
+	pwd : ${member.pwd}<br>
+	name : ${member.name}<br>
+	email : ${member.email}<br>
+  ```
+   + 방법 2
+  ```java
+@Data
+public class MemberDto {
+	private String id;
+	private String pwd;
+	private String name;
+	private String email;
+}
+  
+  @RequestMapping("member/join") //데이터 커맨드 객체
+	// 2. @ModelAttribute("member") 변수를 사용함
+	public String join(@ModelAttribute("member") MemberDto member) {
+		/* model.addAttribute("member", member); */
+		return "member/join";
+	}
+	
+	// 아래와 같이 받으면 된다
+	id : ${member.id}<br>
+	pwd : ${member.pwd}<br>
+	name : ${member.name}<br>
+	email : ${member.email}<br>
   ```
