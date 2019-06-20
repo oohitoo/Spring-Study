@@ -51,3 +51,43 @@ Spring Download Url : https://spring.io/tools3/sts/all
 	    <source>1.8</source>
 	    <target>1.8</target>
 ```
+ > member 폴더
+ ```java
+ @Controller
+public class MemberController {
+	// loginForm 호출함.
+	@RequestMapping("member/loginForm")
+	public String loginForm() {
+		return "member/loginForm";
+	}
+	// req 이전페이지 값 받고 model에 저장	
+	@RequestMapping("member/confirmId")
+	public String confirmId(HttpServletRequest req, Model model) {
+		String id = req.getParameter("id");
+		String pwd = req.getParameter("pwd");
+		model.addAttribute("id", id);
+		model.addAttribute("pwd", pwd);
+		return "member/confirmId";
+	}
+}
+ ```
+  + `@RequestParam("id") String id` : Param으로 받아 변수에 저장하겠다.
+  + Dto (Bean을 )
+  ```java
+  @RequestMapping("member/join")
+	public String insertDto(@RequestParam("id") String id,
+			@RequestParam("pwd") String pwd,
+			@RequestParam("name") String name,
+			@RequestParam("email") String email,
+			Model model) {
+		
+		MemberDto member = new MemberDto();
+		
+		member.setId(id);
+		member.setPwd(pwd);
+		member.setName(name);
+		member.setEmail(email);
+		
+		return "member/join";
+	}
+  ```
