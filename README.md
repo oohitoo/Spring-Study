@@ -72,7 +72,7 @@ public class MemberController {
 }
  ```
   + `@RequestParam("id") String id` : Param으로 받아 변수에 저장하겠다.
-  + Dto (Bean을 )
+  + Dto (Bean을 사용함.)
   ```java
   @RequestMapping("member/join")
 	public String insertDto(@RequestParam("id") String id,
@@ -90,4 +90,10 @@ public class MemberController {
 		
 		return "member/join";
 	}
+	
+  // 받을때
+  	id : ${member.id}<br>
+	pwd : ${member.pwd}<br>
+	name : ${member.name}<br>
+	email : ${member.email}<br>
   ```
