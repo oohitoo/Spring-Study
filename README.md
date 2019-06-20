@@ -113,8 +113,8 @@ public class MemberController {
  <scope>provided</scope>
 </dependency>
  ```
-  6. 아래와 같이 사용하면 된다.
-    + 방법 1
+  6. 아래와 같이 사용하면 된다.<br>
+    + 방법 1 (modelDto로 받아야됨.)
   ```java
 @Data
 public class MemberDto {
@@ -127,16 +127,16 @@ public class MemberDto {
   @RequestMapping("member/join") //데이터 커맨드 객체
 	// 1. JSP에서 memberDto로 가져온다. (model.addAttribute("member",member))
 	// 2. @ModelAttribute("member") 변수를 사용함
-	public String join(@ModelAttribute("member") MemberDto member) {
+	public String join(MemberDto member) {
 		return "member/join";
 	}
 	// 아래와 같이 받으면 된다
-	id : ${member.id}<br>
-	pwd : ${member.pwd}<br>
-	name : ${member.name}<br>
-	email : ${member.email}<br>
+	id : ${memberDto.id}<br>
+	pwd : ${memberDto.pwd}<br>
+	name : ${memberDto.name}<br>
+	email : ${memberDto.email}<br>
   ```
-   + 방법 2
+   + 방법 2 (변수를 사용해서 member로 받을수 있음.)
   ```java
 @Data
 public class MemberDto {
