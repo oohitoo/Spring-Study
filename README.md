@@ -114,7 +114,7 @@ public class MemberController {
 </dependency>
  ```
   6. 아래와 같이 사용하면 된다.<br>
-    + 방법 1 (modelDto로 받아야됨.)
+   + 방법 1 (modelDto로 받아야됨.)
   ```java
 @Data
 public class MemberDto {
