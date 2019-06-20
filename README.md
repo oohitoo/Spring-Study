@@ -149,7 +149,6 @@ public class MemberDto {
   @RequestMapping("member/join") //데이터 커맨드 객체
 	// 2. @ModelAttribute("member") 변수를 사용함
 	public String join(@ModelAttribute("member") MemberDto member) {
-		/* model.addAttribute("member", member); */
 		return "member/join";
 	}
 	
