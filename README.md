@@ -158,3 +158,58 @@ public class MemberDto {
 	name : ${member.name}<br>
 	email : ${member.email}<br>
   ```
+ > @PathVariable 사용하여 값을 전달 가능하다.
+   + member/student/{넘어갈 값 변수}/{넘어갈 값 변수}
+     * 메게변수에도 Mapping에 선언한거 똑같이 변수로 주어야함.
+ ```java
+ -controller
+ @RequestMapping(value = "member/student/{studentId}/{no}")
+	public String student(@PathVariable String studentId,@PathVariable int no, Model model) {
+		model.addAttribute("studentId", studentId);
+		model.addAttribute("no", no);
+		return "member/student";
+	}
+
+-view
+	// 받을때
+	student : ${studentId}<br>
+	no : ${no}<br>
+```
+
+ > GET, POST
+   + HttpServletRequest 을 이용할 것
+ ```java
+ -controller
+ 	// form에서 get방식
+	@RequestMapping(value = "member/goGet" , method = RequestMethod.GET)
+	public String goStudent(HttpServletRequest req, Model model) {
+		String id = req.getParameter("id");
+		model.addAttribute("id", id);
+		return "member/goGet";
+	}
+	
+	// form에서 post방식
+	@RequestMapping(value = "member/goPost", method = RequestMethod.POST)
+	public ModelAndView goStudent(HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView();
+		String id = req.getParameter("id");
+		mv.addObject("id",id);
+		mv.setViewName("member/goGet");
+		return mv;
+	}
+
+-view
+<!-- GET -->
+	<form action="goGet" method="get">
+		<input type="text" name="id" value="aaa1">
+		<input type="submit" value="get">
+	</form>
+	<!-- POST -->
+	<form action="goPost" method="post">
+		<input type="text" name="id" value="aaa2">
+		<input type="submit" value="post">
+	</form>
+	
+	//받을때
+	id : ${id}<br>
+```
