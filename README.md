@@ -213,3 +213,25 @@ public class MemberDto {
 	//받을때
 	id : ${id}<br>
 ```
+ > redirect 
+   + return 에 `redirect`를 선언하여 `studenOK`를 실행 시키도록한다.
+ ```spring
+ 	@RequestMapping(value = "/studentConfirm")
+	public String studentRedirect(HttpServletRequest req) {
+		String id = req.getParameter("id");
+		if(id.equals("aaa")) {
+			return "redirect:studentOK";
+		}
+		return "redirect:studentNG";
+	}
+	
+	@RequestMapping(value = "/studentOK")
+	public String studentOK(Model model) {		
+		return "student/studentOK";
+	}
+	
+	@RequestMapping(value = "/studentNG")
+	public String studenNG(Model model) {
+		return "student/studentNG";
+	}
+ ```
