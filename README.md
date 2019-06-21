@@ -5,7 +5,7 @@ Spring Download URl : https://spring.io/tools3/sts/all <br>
 lombok Download URl : https://projectlombok.org/download <br>
 ------------
 
-### 개발 IDE : Eclipe EE
+### 개발 IDE : Spring 3 (version 3)
 
 > 단축키
  + `alt+ F5` updateProject
