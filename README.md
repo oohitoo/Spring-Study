@@ -178,6 +178,7 @@ public class MemberDto {
 
  > GET, POST
    + HttpServletRequest 을 이용할 것
+   + ModelAndView : Model(데이터)과 view를 동시에 설정 가능
  ```java
  -controller
  	// form에서 get방식
@@ -194,6 +195,7 @@ public class MemberDto {
 		ModelAndView mv = new ModelAndView();
 		String id = req.getParameter("id");
 		mv.addObject("id",id);
+		//넘어가는페이지
 		mv.setViewName("member/goGet");
 		return mv;
 	}
@@ -215,7 +217,7 @@ public class MemberDto {
 ```
  > redirect 
    + return 에 `redirect`를 선언하여 `studenOK`를 실행 시키도록한다.
- ```spring
+ ```java
  	@RequestMapping(value = "/studentConfirm")
 	public String studentRedirect(HttpServletRequest req) {
 		String id = req.getParameter("id");
@@ -235,3 +237,10 @@ public class MemberDto {
 		return "student/studentNG";
 	}
  ```
+  + URL을 호출 할 수 도있다.
+```java
+	@RequestMapping(value = "/studentURL")
+	public String studentURL(Model model) {
+		return "redirect:http://localhost/ex01/form.jsp";
+	}
+```
