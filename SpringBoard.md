@@ -33,7 +33,7 @@ ex:)
 		</repository>
 	</repositories>
 	<dependencies>	
-```
+    ```
     + lombok 설정한곳 바로 밑에 추가 
       
 ```html
@@ -58,4 +58,51 @@ ex:)
 			<artifactId>ojdbc6</artifactId>
 			<version>12.1.0.2</version>
 		</dependency>
+```
+7. insert 시 한글깨짐 방지
+ * `src\main\webapp\WEB-INF\web.xml` 파일 수정 필요 (추가함)
+    * ``` java 
+		<filter>
+			<filter-name>encodingFilter</filter-name>
+			<filter-class>
+				org.springframework.web.filter.CharacterEncodingFilter
+			</filter-class>
+			<init-param>
+				<param-name>encoding</param-name>
+				<param-value>UTF-8</param-value>
+			</init-param>
+		</filter>
+		<filter-mapping>
+			<filter-name>encodingFilter</filter-name>
+			<url-pattern>/*</url-pattern>
+		</filter-mapping> 
+        ```
+삭제 할때
+
+```java
+@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String modify(HttpServletRequest req,Model model) {
+		model.addAttribute("request", req);
+		
+		command = new BModifyCommand();
+		command.excute(model);
+		return "redirect:list";
+	}
+```
+
+`com.myspring.springBoard.command ->BModifyCommand.java` 파일
+```java
+@Override
+	public void excute(Model model) {
+		Map<String, Object> map = model.asMap();
+		HttpServletRequest req = (HttpServletRequest)map.get("request");
+		
+		String bId = req.getParameter("bId");
+		String bName = req.getParameter("bName");
+		String bTitle = req.getParameter("bTitle");
+		String bContent = req.getParameter("bContent");
+		
+		BDao dao = new BDao();
+		dao.modify(bId, bName, bTitle, bContent);
+	}
 ```
