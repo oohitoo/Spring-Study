@@ -21,7 +21,7 @@ public class BDao {
 	public BDao() {
 		try {
 			Context context = new InitialContext();
-			//jdbc/Oracle11g : server.xml���� ������ �̸�
+			//jdbc/Oracle11g : server.xml에 설정한 이름
 			ds = (DataSource)context.lookup("java:comp/env/jdbc/Oracle11g");
 		} catch (Exception e) {
 			e.printStackTrace();

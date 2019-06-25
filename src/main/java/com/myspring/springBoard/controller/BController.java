@@ -5,10 +5,13 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.myspring.springBoard.command.BCommand;
 import com.myspring.springBoard.command.BContentCommand;
+import com.myspring.springBoard.command.BDeleteCommand;
 import com.myspring.springBoard.command.BListCommand;
+import com.myspring.springBoard.command.BModifyCommand;
 import com.myspring.springBoard.command.BWriteCommand;
 
 @Controller
@@ -17,14 +20,13 @@ public class BController {
 	
 	@RequestMapping(value = "/writeView")
 	public String writeView(Model model) {
-		return "writeView"; //src/main/WEB-INF/views/writeView.jsp È£Ãâ
+		return "writeView"; //src/main/WEB-INF/views/writeView.jsp í˜¸ì¶œ
 	}
 	
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
-		System.out.println("1");
 		command = new BListCommand();
-		command.excute(model); //µ¿Àû ÇÒ´ç
+		command.excute(model); //ë™ì í• ë‹¹
 		return "list";
 	}
 	
@@ -33,16 +35,32 @@ public class BController {
 		model.addAttribute("request", req);
 		command = new BWriteCommand();
 		command.excute(model);
-		return "reirect:list";
+		return "redirect:list";
 	}
 	
-	//contentView ¸Þ¼Òµå(¾×¼Ç)¸¦ ¼±¾ð -> "contentView"
+	//contentView ï¿½Þ¼Òµï¿½(ï¿½×¼ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -> "contentView"
 	@RequestMapping(value = "/contentView")
 	public String contentView(HttpServletRequest req, Model model) {
 		model.addAttribute("request", req);
 		command = new BContentCommand();
 		command.excute(model);
 		return "contentView";
-		
+	}
+	
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String modify(HttpServletRequest req,Model model) {
+		model.addAttribute("request", req);		
+		command = new BModifyCommand();
+		command.excute(model);
+		return "redirect:list";
+	}
+	
+	//delete
+	@RequestMapping(value = "delete")
+	public String delete(HttpServletRequest req, Model model) {
+		model.addAttribute("request", req);
+		command = new BDeleteCommand();
+		command.excute(model);
+		return "redirect:list";
 	}
 }

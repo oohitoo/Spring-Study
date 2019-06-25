@@ -60,6 +60,7 @@ ex:)
 		</dependency>
 ```
 7. insert 시 한글깨짐 방지
+
  * `src\main\webapp\WEB-INF\web.xml` 파일 수정 필요 (추가함)
     ``` java 
 		<filter>
@@ -77,8 +78,109 @@ ex:)
 			<url-pattern>/*</url-pattern>
 		</filter-mapping> 
         ```
-        
- * 게시판 내용 수정
+
+* 게시판 리스트
+
+ modal interFace로 만듬
+ 
+```java
+public interface BCommand {
+	void excute(Model model);
+}
+```
+
+ 보여줄페이지랑 맵핑 
+```java
+	@RequestMapping(value = "/list")
+	public String list(Model model) {
+		command = new BListCommand();
+		command.excute(model); //동적할당
+		return "list";
+	}
+ ```
+ BDto(Bean)에 저장하여 가져오기
+```java
+	@Override
+	public void excute(Model model) {
+		BDao dao = new BDao();
+		ArrayList<BDto> dtos = dao.list();
+		model.addAttribute("list", dtos);
+	}
+```
+ DB에서 리스트 불러오기
+```java
+//list
+	public ArrayList<BDto> list() {
+		ArrayList<BDto> dtos = new ArrayList<BDto>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = ds.getConnection();
+			String sql = "SELECT * FROM tblBoard ORDER BY bID";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int bId = rs.getInt("bId");
+				String bName = rs.getString("bName");
+				String bTitle = rs.getString("bTitle");
+				String bContent = rs.getString("bContent");
+				Timestamp bDate = rs.getTimestamp("bDate");
+				int bHit = rs.getInt("bHit");
+				BDto dto = new BDto(bId, bName, bTitle, bContent, bDate, bHit);
+				dtos.add(dto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (con != null)
+					con.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+
+		return dtos;
+	}
+``` 
+
+* 게시판 내용 수정
+
+```html
+<form action="modify" method="post">
+	<table width="500"  border="1">
+			<tr>
+				<td> 번호 </td>
+				<td><input name="bId" readonly="readonly" value="${contentView.bId}"></td>
+			</tr>
+			<tr>
+				<td> 히트 </td>
+				<td>${contentView.bHit}</td>
+			</tr>
+			<tr>
+				<td> 이름 </td>
+				<td><input  name="bName" value="${contentView.bName}"></td>
+			</tr>
+			<tr>
+				<td> 제목 </td>
+				<td><input name="bTitle" value="${contentView.bTitle}"></td>
+			</tr>
+			<tr>
+				<td> 내용 </td>
+				<td><textarea rows="10" name="bContent">${contentView.bContent}</textarea></td>
+			</tr>
+			<tr >
+				<td colspan="2"><input type="submit" value="수정"> &nbsp;&nbsp; <a href="list">목록보기</a> &nbsp;&nbsp; <a href="">삭제</a> &nbsp;&nbsp; </td>
+			</tr>
+	</table>
+	<input type="hidden" name="bId" value="">
+</form>
+```
 
 ```java
 @RequestMapping(value = "/modify", method = RequestMethod.POST)
@@ -105,5 +207,65 @@ ex:)
 		
 		BDao dao = new BDao();
 		dao.modify(bId, bName, bTitle, bContent);
+	}
+```
+
+* 게시판 삭제
+
+```html
+	<form action="modify" method="post">
+	<table width="500"  border="1">
+			<tr>
+				<td> 번호 </td>
+				<td><input name="bId" readonly="readonly" value="${contentView.bId}"></td>
+			</tr>
+			<tr>
+				<td> 히트 </td>
+				<td>${contentView.bHit}</td>
+			</tr>
+			<tr>
+				<td> 이름 </td>
+				<td><input  name="bName" value="${contentView.bName}"></td>
+			</tr>
+			<tr>
+				<td> 제목 </td>
+				<td><input name="bTitle" value="${contentView.bTitle}"></td>
+			</tr>
+			<tr>
+				<td> 내용 </td>
+				<td><textarea rows="10" name="bContent">${contentView.bContent}</textarea></td>
+			</tr>
+			<tr >
+				<td colspan="2"><input type="submit" value="수정"> &nbsp;&nbsp; <a href="list">목록보기</a> &nbsp;&nbsp; <a href="delete?bId=${contentView.bId}">삭제</a> &nbsp;&nbsp; </td>
+			</tr>
+	</table>
+	<input type="hidden" name="bId" value="">
+	</form>
+```
+
+ mapping 해야됨
+ 
+```java
+	//delete
+	@RequestMapping(value = "delete", method = RequestMethod.GET)
+	public String delete(HttpServletRequest req, Model model) {
+		model.addAttribute("request", req);
+		command = new BDeleteCommand();
+		command.excute(model);
+		return "redirect:list";
+	}
+```
+
+BDeleteCommand 만들자
+
+```java
+	@Override
+	public void excute(Model model) {
+		Map<String, Object> map = model.asMap(); 
+		HttpServletRequest req = (HttpServletRequest)map.get("request");
+		String bId = req.getParameter("bId");
+		System.out.println(bId);
+		BDao dao = new BDao();		
+		dao.delete(bId);
 	}
 ```
