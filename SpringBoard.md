@@ -150,7 +150,7 @@ public interface BCommand {
 ``` 
 
 > 게시판 내용 수정
-
+ * HTML 페이지
 ```html
 <form action="modify" method="post">
 	<table width="500"  border="1">
@@ -186,6 +186,8 @@ public interface BCommand {
 </form>
 ```
 
+ * Mapping 하는곳
+
 ```java
 @RequestMapping(value = "/modify", method = RequestMethod.POST)
 	public String modify(HttpServletRequest req,Model model) {
@@ -217,6 +219,7 @@ public interface BCommand {
 
 > 게시판 삭제
 
+ * HTML 파일
 ```html
 	<form action="modify" method="post">
 	<table width="500"  border="1">
@@ -265,7 +268,7 @@ public interface BCommand {
 	}
 ```
 
-BDeleteCommand 만들자
+ * BDeleteCommand 만들자
 
 ```java
 	@Override
@@ -274,7 +277,7 @@ BDeleteCommand 만들자
 		HttpServletRequest req = (HttpServletRequest)map.get("request");
 		String bId = req.getParameter("bId");
 		System.out.println(bId);
-		BDao dao = new BDao();		
+		BDao dao = new BDao();
 		dao.delete(bId);
 	}
 ```
