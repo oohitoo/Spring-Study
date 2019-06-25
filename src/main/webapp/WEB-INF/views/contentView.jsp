@@ -29,7 +29,10 @@
 				<td><textarea rows="10" name="bContent">${contentView.bContent}</textarea></td>
 			</tr>
 			<tr >
-				<td colspan="2"><input type="submit" value="수정"> &nbsp;&nbsp; <a href="list">목록보기</a> &nbsp;&nbsp; <a href="">삭제</a> &nbsp;&nbsp; </td>
+				<td colspan="2">
+				<input type="submit" value="수정"> &nbsp;&nbsp;
+					<a href="list">목록보기</a> &nbsp;&nbsp;
+					<a href="delete?bId=${contentView.bId}">삭제</a> &nbsp;&nbsp; </td>
 			</tr>
 	</table>
 	<input type="hidden" name="bId" value="">
