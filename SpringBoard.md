@@ -33,7 +33,7 @@ ex:)
 		</repository>
 	</repositories>
 	<dependencies>	
-    ```
+```
 + lombok 설정한곳 바로 밑에 추가 
       
 ```html
@@ -77,7 +77,8 @@ ex:)
 			<url-pattern>/*</url-pattern>
 		</filter-mapping> 
         ```
-삭제 할때
+        
+ * 게시판 내용 수정
 
 ```java
 @RequestMapping(value = "/modify", method = RequestMethod.POST)
