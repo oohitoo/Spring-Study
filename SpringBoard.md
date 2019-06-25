@@ -34,7 +34,7 @@ ex:)
 	</repositories>
 	<dependencies>	
     ```
-    + lombok 설정한곳 바로 밑에 추가 
++ lombok 설정한곳 바로 밑에 추가 
       
 ```html
 		<!-- 스프링에서 JDBC 를 사용하기 위한 라이브러리 입니다. -->
