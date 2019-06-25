@@ -79,9 +79,9 @@ ex:)
 		</filter-mapping> 
         ```
 
-* 게시판 리스트
+> 게시판 리스트
 
- modal interFace로 만듬
+ * modal interFace로 만듬
  
 ```java
 public interface BCommand {
@@ -89,7 +89,7 @@ public interface BCommand {
 }
 ```
 
- 보여줄페이지랑 맵핑 
+ * 보여줄페이지랑 맵핑 
 ```java
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
@@ -98,7 +98,7 @@ public interface BCommand {
 		return "list";
 	}
  ```
- BDto(Bean)에 저장하여 가져오기
+ * BDto(Bean)에 저장하여 가져오기
 ```java
 	@Override
 	public void excute(Model model) {
@@ -107,7 +107,7 @@ public interface BCommand {
 		model.addAttribute("list", dtos);
 	}
 ```
- DB에서 리스트 불러오기
+ * DB에서 리스트 불러오기
 ```java
 //list
 	public ArrayList<BDto> list() {
@@ -149,7 +149,7 @@ public interface BCommand {
 	}
 ``` 
 
-* 게시판 내용 수정
+> 게시판 내용 수정
 
 ```html
 <form action="modify" method="post">
@@ -175,7 +175,11 @@ public interface BCommand {
 				<td><textarea rows="10" name="bContent">${contentView.bContent}</textarea></td>
 			</tr>
 			<tr >
-				<td colspan="2"><input type="submit" value="수정"> &nbsp;&nbsp; <a href="list">목록보기</a> &nbsp;&nbsp; <a href="">삭제</a> &nbsp;&nbsp; </td>
+				<td colspan="2">
+					<input type="submit" value="수정"> &nbsp;&nbsp;
+						<a href="list">목록보기</a> &nbsp;&nbsp;
+						<a href="">삭제</a> &nbsp;&nbsp;
+				</td>
 			</tr>
 	</table>
 	<input type="hidden" name="bId" value="">
@@ -194,6 +198,7 @@ public interface BCommand {
 ```
 
 `com.myspring.springBoard.command ->BModifyCommand.java` 파일
+
 ```java
 @Override
 	public void excute(Model model) {
@@ -210,7 +215,7 @@ public interface BCommand {
 	}
 ```
 
-* 게시판 삭제
+> 게시판 삭제
 
 ```html
 	<form action="modify" method="post">
@@ -236,14 +241,18 @@ public interface BCommand {
 				<td><textarea rows="10" name="bContent">${contentView.bContent}</textarea></td>
 			</tr>
 			<tr >
-				<td colspan="2"><input type="submit" value="수정"> &nbsp;&nbsp; <a href="list">목록보기</a> &nbsp;&nbsp; <a href="delete?bId=${contentView.bId}">삭제</a> &nbsp;&nbsp; </td>
+				<td colspan="2">
+					<input type="submit" value="수정"> &nbsp;&nbsp; 
+					<a href="list">목록보기</a> &nbsp;&nbsp; 
+					<a href="delete?bId=${contentView.bId}">삭제</a> &nbsp;&nbsp; 
+				</td>
 			</tr>
 	</table>
 	<input type="hidden" name="bId" value="">
 	</form>
 ```
 
- mapping 해야됨
+ * mapping 해야됨
  
 ```java
 	//delete
