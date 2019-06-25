@@ -3,9 +3,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>WriteView</title>
 </head>
 <body>
-	main
+	<a href="list">writeView</a>
 </body>
 </html>
