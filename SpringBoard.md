@@ -61,7 +61,7 @@ ex:)
 ```
 7. insert 시 한글깨짐 방지
  * `src\main\webapp\WEB-INF\web.xml` 파일 수정 필요 (추가함)
-    * ``` java 
+    ``` java 
 		<filter>
 			<filter-name>encodingFilter</filter-name>
 			<filter-class>
