@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mySpring.springNote2.DAO.INoteDAO">
+	<select id="listDAO" resultType="com.mySpring.springNote2.DTO.NoteDTO">
+		select * from tblNote order by id desc
+	</select>
+	<insert id="writeDAO">
+		insert into tblNote(id,writer, content) values(TBLNOTESEQ.nextVal, #{param1}, #{param2})
+	</insert>
+	<delete id="deleteDAO">
+		delete from tblNote where id = #{param}
+	</delete>
+</mapper>
