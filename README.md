@@ -1,11 +1,17 @@
-# SpringFrm
-스프링 공부중
+# SpringFrm (스프링 공부중)
 
 Spring Download URl : https://spring.io/tools3/sts/all <br>
 lombok Download URl : https://projectlombok.org/download <br>
 ------------
 
 ### 개발 IDE : Spring 3 (version 3)
+
+---
+- 배운내용을 통해 복습한 것들
+  + [ 글쓰기, 수정, 삭제 (JSDL) ] (https://github.com/oohitoo/SpringFrm/blob/master/SpringBoard.md)
+  + [ 글쓰기, 수정, 삭제 (myBatis) ] (https://github.com/oohitoo/SpringFrm/blob/master/maBatis.md)
+  + [ 글쓰기, 수정, 삭제 (JDBC) ] (https://github.com/oohitoo/SpringFrm/blob/master/movieticket.md)
+---
 
 > 단축키
  + `alt+ F5` updateProject
