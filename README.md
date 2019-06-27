@@ -11,7 +11,7 @@ lombok Download URl : https://projectlombok.org/download <br>
   + [JSDL을사용함] <https://github.com/oohitoo/SpringFrm/blob/master/SpringBoard.md>
   + [myBatis 글쓰기/수정/삭제] <https://github.com/oohitoo/SpringFrm/blob/master/maBatis.md>
   + [글쓰기, 수정, 삭제 (JDBC)] <https://github.com/oohitoo/SpringFrm/blob/master/movieticket.md>
-  + [GOOGLE](https://google.com)
+  + [JSDL을사용함](https://google.com)
 ---
 
 > 단축키
