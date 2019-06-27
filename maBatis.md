@@ -3,6 +3,8 @@
 ### 프로젝트명 : springNote2
 ### 프로젝트 경로 : com.mySpring.springNote2
 
+## URL : https://mvnrepository.com
+
 myBatis 사용을 위하 설정해야 할 것
 
 > pom.xml (myBatis 사용을 위한 추가)

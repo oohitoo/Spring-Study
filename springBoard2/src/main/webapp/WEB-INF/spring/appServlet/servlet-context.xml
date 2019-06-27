@@ -21,6 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- DB연결 -->
 	<context:component-scan base-package="com.mySpring.springBoard2" />
 	
 	    <beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
