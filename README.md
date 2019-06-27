@@ -8,10 +8,9 @@ lombok Download URl : https://projectlombok.org/download <br>
 
 ---
 - 배운내용을 통해 복습한 것들
-  + [JSDL을사용함] <https://github.com/oohitoo/SpringFrm/blob/master/SpringBoard.md>
-  + [myBatis 글쓰기/수정/삭제] <https://github.com/oohitoo/SpringFrm/blob/master/maBatis.md>
-  + [글쓰기, 수정, 삭제 (JDBC)] <https://github.com/oohitoo/SpringFrm/blob/master/movieticket.md>
-  + [JSDL을사용한 글쓰기/수정/삭제](https://google.com)
+  + [JSDL 글쓰기/수정/삭제](https://github.com/oohitoo/SpringFrm/blob/master/SpringBoard.md)
+  + [Mybatis 글쓰기/수정/삭제](https://github.com/oohitoo/SpringFrm/blob/master/maBatis.md)
+  + [JDBC 글쓰기/수정/삭제](https://github.com/oohitoo/SpringFrm/blob/master/movieticket.md)
 ---
 
 > 단축키
