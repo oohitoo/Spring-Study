@@ -22,8 +22,8 @@ ex:)
 <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxActive="50" maxWait="1000" name="jdbc/Oracle11g"
     		  password="비밀번호" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:포트번호:오라클버전" username="아이디"/>
 ```
-  6. orcal 세팅
-    + </properties> 끝나는 부분 추가 (16번 라인)
+  6. orcal 세팅 
+    + 끝나는 부분 추가 (16번 라인) RELEASE 부분
     
 ```html
 	<repositories>
