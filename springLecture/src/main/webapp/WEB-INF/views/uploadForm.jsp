@@ -6,7 +6,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="index">index</a>
-	<a href="file">파일</a>
+	<form action="uploadFormAction" method="post" enctype="multipart/form-data">
+		<input type="file" name="uploadFile" multiple>
+		<button>submit</button>
+	</form>
 </body>
 </html>

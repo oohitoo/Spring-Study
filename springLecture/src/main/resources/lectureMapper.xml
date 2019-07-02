@@ -26,6 +26,6 @@
 		UPDATE lecture SET lcReadCount = lcReadCount + 1 WHERE lcNum = #{lcNum}
 	</update>
     <insert id="insert">
-        INSERT INTO lecture(lcTitle, lcContent, lcWriteDate, lcReadCount, ctNum, userID) VALUES(#{lcTitle}, #{lcContent}, now(), 0, #{ctNum}, "admin")
+        INSERT INTO lecture(lcTitle, lcContent, lcWriteDate, lcReadCount, ctNum, userID) VALUES(#{lcTitle}, #{lcContent}, now(), 0, #{ctNum}, #{userID})
     </insert>
 </mapper>

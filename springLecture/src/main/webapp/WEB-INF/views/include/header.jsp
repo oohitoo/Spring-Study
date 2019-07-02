@@ -49,7 +49,7 @@
 									</button>
 								</form>
 							</div>
-							<% if(session.getAttribute("idKey") == null){ %>
+							<% if(session.getAttribute("userID") == null){ %>
 							<!-- Social Button -->
 							<div class="top-social-info">
 								<a href="categoryWriteForm">강의만들기</a><a href="userJoinForm">회원가입</a> <a href="userLoginForm">로그인</a>
@@ -58,7 +58,7 @@
 							<!-- Social Button -->
 							<div class="top-social-info">
 								<a href="categoryWriteForm">강의만들기</a>
-								<a href="userLogout">로그아웃</a>
+								<a href="userLogout">(<%= session.getAttribute("userID") %>)로그아웃</a>
 							</div>
 							<% } %>
 						</div>

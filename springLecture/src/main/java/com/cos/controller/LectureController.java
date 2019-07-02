@@ -1,8 +1,12 @@
 package com.cos.controller;
 
+import java.net.http.HttpResponse;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,12 +50,18 @@ public class LectureController {
 	}
 	
 	@RequestMapping(value = "/lectureWriteForm", method = RequestMethod.GET)
-	public String lectureWriteForm(Model model, @RequestParam("ctNum") int ctNum) throws Exception{
+	public String lectureWriteForm(HttpServletRequest req,Model model, @RequestParam("ctNum") int ctNum) throws Exception{
 		model.addAttribute("ctg1", ctService.selectGubun1(1));
 		model.addAttribute("ctg2", ctService.selectGubun1(2));
 		model.addAttribute("ctg3", ctService.selectGubun1(3));
 		model.addAttribute("ctg4", ctService.selectGubun1(4));
 		model.addAttribute("ctNum", ctNum);
+		HttpSession session = req.getSession();
+		String userID = "admin";
+		if(session.getAttribute("userID")!= null) {
+			userID = (String)session.getAttribute("userID");
+		}
+		model.addAttribute("userID", userID);
 		return "lecture/lectureWriteForm";
 	}
 	

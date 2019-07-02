@@ -8,7 +8,7 @@
 	</div>
 	<form name="w_form" method="post" action="lectureWrite">
 		<input type="hidden" name="filepath" value="/editor/upload/" /> 
-		<input type="hidden" name="userID" value="admin" />
+		<input type="hidden" name="userID" value="${userID}" />
 		<input type="hidden" name="ctNum" value="${ctNum}" />
 		<label class="form-control-label">제목</label> 
 		<input type="text" class="form-control" name="lcTitle" required> 

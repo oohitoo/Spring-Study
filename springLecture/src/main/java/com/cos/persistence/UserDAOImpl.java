@@ -1,9 +1,5 @@
 package com.cos.persistence;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -25,16 +21,14 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public List<UserVO> select(String userID) throws Exception {
-		return sqlSession.selectList(nameSpace+".select", userID);
+	public UserVO select(String userID) throws Exception {
+		UserVO user = sqlSession.selectOne(nameSpace+".select", userID);
+		return user;
 	}
 
 	@Override
-	public int login(String userID, String userPW) throws Exception {
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("userID", userID);
-		map.put("userPW", userPW);
-		return sqlSession.selectOne(nameSpace+".login",map);
+	public int login(UserVO user) throws Exception {
+		return sqlSession.selectOne(nameSpace+".login",user);
 	}
 	
 }
