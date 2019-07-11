@@ -8,7 +8,7 @@
 myBatis 사용을 위하 설정해야 할 것
 
 > pom.xml (myBatis 사용을 위한 추가)
-    ```java
+ ```java
     <!-- myBatis 추가에 필요한 라이브러리-->
     <dependency>
         <groupId>org.mybatis</groupId>
@@ -21,7 +21,7 @@ myBatis 사용을 위하 설정해야 할 것
         <artifactId>mybatis-spring</artifactId>
         <version>2.0.1</version>
     </dependency>
-    ```
+ ```
   
 경로 : \spring\appServlet\servlet-context.xml
 
