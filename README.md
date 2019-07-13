@@ -111,6 +111,13 @@ public class MemberController {
    3. sts.exe 경로 잡고 install
    4. sts.exe Reboot 한다.
    5. pom.xml에 아래와 같이 110번 라인 뒤에 추가한다.
+   
+ ※ lombok.jar 추가를 했으나 실행이 안되거나 할때에는 `STS.ini` 를 실행하여 
+ ```
+ -vmargs 
+ -javaagent:lombok.jar
+```
+를 추가 시켜준다.
  ```java
 <!-- lombok -->
 <dependency>
