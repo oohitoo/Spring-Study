@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mySpring.SpringComm.DAO.CommentDAO">
+	<insert id="commentsInsert">
+		insert into comments values(#{username}, #{usercomment}, #{sercret}, now())
+	</insert>
+	<select id="selectComment" resultType="com.mySpring.SpringComm.DTO.CommentDTO">
+		SELECT * FROM comments order by datetime desc Limit #{param1}, #{param2};
+	</select>
+	<select id="totalRecord" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM comments
+	</select>
+</mapper>

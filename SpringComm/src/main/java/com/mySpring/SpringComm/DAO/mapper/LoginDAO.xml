@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mySpring.SpringComm.DAO.LoginDAO">
+	<select id ="login" resultType="com.mySpring.SpringComm.DTO.usersDTO">
+		SELECT * FROM users where userid= #{param1} and userpwd = #{param2}
+	</select>
+	<insert id="createDAO">
+ 		insert into users values(#{userid},#{userpwd},#{username},#{useremail})
+	</insert>
+</mapper>
